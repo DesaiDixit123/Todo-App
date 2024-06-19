@@ -8,3 +8,17 @@
 .textClor {
     color: gray;
 }
+
+.dark {
+    --black: black;
+    --white: white;
+    --mainBg: #303442;
+    --aside: #1f1f1f;
+}
+
+.light {
+    --black: white;
+    --white: black;
+    --mainBg: #afbff3;
+    --aside: #ffffff;
+}

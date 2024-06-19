@@ -1,62 +1,112 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import  { GlobleProvider } from "../Context/GlobleContext";
+import { GlobleProvider } from "../Context/GlobleContext";
 import TodoCart from "./TodoCard";
-import { FaPencilAlt} from "react-icons/fa"
+import { FaPencilAlt } from "react-icons/fa";
 export default function TodoList() {
-
-  const {getData}=useContext(GlobleProvider)
-
-
+  const { getData, searchTodo, setSearchqur, searchQur } =
+    useContext(GlobleProvider);
 
   return (
     <>
-      <div className="px-[40px] py-[20px]">
-          <input type="text" placeholder="Search Your Todo..."  className="border-4 border-black p-[7px] w-[300px] rounded-[15px]"/>
-        </div>
-{getData.length===0?(
-  <div className="flex justify-center pt-[40px]">
-
-  <div className="w-[400px] bg-white p-[40px] border-dashed border-4 border-red-500">
-      <div>
-          <h1 className="text-center text-[30px] font-semibold">Todo List Is Blank!</h1>
-      </div>
-
-      <div className="flex justify-center pt-[20px] gap-6">
-          <p className="text-[20px]">Go to add todo:</p>
-          <Link to={"/"} className="flex text-[20px] gap-2 relative text-createTodo-600 ">
-          <span>
-              <FaPencilAlt className="relative top-1 "/>
-          </span>
-          <span>Createtodo</span>
-          <hr className="w-[132px] border-createTodo-600 absolute top-[30px] "/>
-          </Link>
-      </div>
-  </div>
-  </div> 
-):(
-
-  <div>
-
-    {getData.map((val,index)=>{
-    return  <TodoCart key={index} TodoItem={{
-        heading:val.heading,
-        textArea:val.textArea,
-        time:val.time,
-        date:val.date,
-        createdDate:`${new Date(val.id).getDate()}/${new Date(val.id).getMonth()}/${new Date().getFullYear()}`,
-        createdTime: `${new Date(val.id).getHours()} : ${new Date(val.id).getMinutes()} ${new Date(val.id).getHours() >= 12 ? 'pm' : 'am'}`,
-        id:val.id,
-
-      }}/>
-    })}
-  </div>
-)}
-
-
-    
 
      
+      {getData.length === 0 ? (
+      <div  className="h-[100vh]">
+        <div className="flex justify-center pt-[40px] ">
+          <div className="w-[400px] bg-[--black] p-[40px] border-dashed border-4 border-red-500">
+            <div>
+              <h1 className="text-center text-[30px] font-semibold text-[--white]">
+                Todo List Is Blank!
+              </h1>
+            </div>
+
+            <div className="flex justify-center pt-[20px] gap-6">
+              <p className="text-[20px] text-[--white]">Go to add todo:</p>
+              <Link
+                to={"/"}
+                className="flex text-[20px] gap-2 relative text-createTodo-600 hover:text-red-700"
+              >
+                <span>
+                  <FaPencilAlt className="relative top-1 " />
+                </span>
+                <span>Createtodo</span>
+                {/* <hr className="w-[132px] border-createTodo-600 absolute top-[30px] " /> */}
+              </Link>
+            </div>
+          </div>
+          </div>
+        </div>
+      ) : !searchQur == "" ? (
+        <div>
+             <div className="px-[40px] py-[20px] ">
+        <input
+          type="text"
+          placeholder="Search Your Todo..."
+          className="border-4 border-[--white] bg-[--black] text-[20px] p-[7px] w-[300px] rounded-[15px]"
+          value={searchQur}
+          onChange={(e) => setSearchqur(e.target.value)}
+        />
+      </div>
+          {searchTodo.map((val, index) => {
+            return (
+              <TodoCart
+                key={index}
+                TodoItem={{
+                  heading: val.heading,
+                  textArea: val.textArea,
+                  time: val.time,
+                  date: val.date,
+                  createdDate: `${new Date(val.id).getDate()}/${new Date(
+                    val.id
+                  ).getMonth()}/${new Date().getFullYear()}`,
+                  createdTime: `${new Date(val.id).getHours()} : ${new Date(
+                    val.id
+                  ).getMinutes()} ${
+                    new Date(val.id).getHours() >= 12 ? "pm" : "am"
+                  }`,
+                  id: val.id,
+                }}
+              
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <div>
+          <div className="px-[40px] py-[20px]">
+        <input
+          type="text"
+          placeholder="Search Your Todo..."
+          className="border-4 border-black p-[7px] w-[300px] rounded-[15px]"
+          value={searchQur}
+          onChange={(e) => setSearchqur(e.target.value)}
+        />
+      </div>
+          {getData.map((val, index) => {
+            return (
+              <TodoCart
+                key={index}
+                TodoItem={{
+                  heading: val.heading,
+                  textArea: val.textArea,
+                  time: val.time,
+                  date: val.date,
+                  createdDate: `${new Date(val.id).getDate()}/${new Date(
+                    val.id
+                  ).getMonth()}/${new Date().getFullYear()}`,
+                  createdTime: `${new Date(val.id).getHours()} : ${new Date(
+                    val.id
+                  ).getMinutes()} ${
+                    new Date(val.id).getHours() >= 12 ? "pm" : "am"
+                  }`,
+                  id: val.id,
+                }}
+              />
+            );
+          })}
+        </div>
+      )}
     </>
   );
 }
