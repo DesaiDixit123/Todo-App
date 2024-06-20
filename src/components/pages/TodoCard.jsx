@@ -13,7 +13,7 @@ export default function TodoCart({TodoItem}){
         <div className="px-[30px] py-[30px] ">
           <div className=" w-[100%] bg-[--black] border-4 border-[--white] rounded-[15px]">
             <div className="">
-              <h1 className="bg-[white] text-[--black] text-center text-[30px] py-[5px] font-semibold">
+              <h1 className="bg-[--white] text-[--black] text-center text-[30px] py-[5px] font-semibold">
                {TodoItem.heading}
               </h1>
             </div>

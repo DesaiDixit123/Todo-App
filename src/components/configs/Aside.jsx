@@ -26,11 +26,11 @@ export default function Aside() {
             </h1>
           </div>
         </div>
-        <div className=" xl:h-[90.8vh] lg:h-[90.8vh] md:h-[90.8vh] relative">
+        <div className=" xl:h-[90.8vh] lg:h-[90.8vh] md:h-[90.8vh] relative bg-[--black]">
           <NavLink to={"/"}>
-            <div className="flex gap-3 xl:pl-[30px] lg:pl-[30px] md:pl-[17px] pt-[30px]">
-              <FaPencilAlt className="xl:text-[25px] lg:text-[25px] md:text-[35px] relative top-1" />
-              <h1 className="font-semibold text-[25px] xl:block lg:block md:hidden ">
+            <div className="flex gap-3 xl:pl-[30px] lg:pl-[30px] md:pl-[17px] pt-[30px] hover:text-light-400">
+              <FaPencilAlt className="xl:text-[25px] lg:text-[25px] md:text-[35px] relative top-1 text-[--white]" />
+              <h1 className="font-semibold text-[25px] xl:block lg:block md:hidden text-[--white]">
                 Create Todo
               </h1>
             </div>
@@ -41,9 +41,9 @@ export default function Aside() {
               className="flex gap-2 pt-[30px] xl:px-[40px] lg:px-[40px] md
             px-0 md:pl-[12px]"
             >
-              <LuListTodo className="xl:text-[25px] lg:text-[25px] md:text-[40px] relative top-1" />
+              <LuListTodo className="xl:text-[25px] lg:text-[25px] md:text-[40px] relative top-1 text-[--white]" />
 
-              <h1 className="text-[22px] font-medium xl:block lg:block md:hidden">
+              <h1 className="text-[22px] font-medium xl:block lg:block md:hidden text-[--white]">
                 Todo List
               </h1>
               <span className="text-red-500 text-[30px] relative bottom-6 -left-3 xl:block lg:block md:hidden ">
@@ -57,13 +57,13 @@ export default function Aside() {
               <div className="xl:flex xl:gap-16 xl:pl-[45px] lg:flex lg:gap-16 lg:pl-[45px] md:pl-[15px] pb-5 fixed bottom-0">
                 <button onClick={themeButton}>
                   {theme == "light" ? 
-                    <FaMoon className="xl:text-[40px] lg:text-[40px] md:text-[30px] xl:relative xl:bottom-0 lg:relative lg:bottom-0 md:relative md:bottom-7" />
+                    <FaMoon className="xl:text-[40px] lg:text-[40px] md:text-[30px] xl:relative xl:bottom-0 lg:relative lg:bottom-0 md:relative md:bottom-7 text-[--white]" />
                    : 
-                    <FaSun className="xl:text-[40px] lg:text-[40px] md:text-[30px] xl:relative xl:bottom-0 lg:relative lg:bottom-0 md:relative md:bottom-7" />
+                    <FaSun className="xl:text-[40px] lg:text-[40px] md:text-[30px] xl:relative xl:bottom-0 lg:relative lg:bottom-0 md:relative md:bottom-7 text-[--white]" />
                   }
                 </button>
                 <Link>
-                  <FaGithub className="xl:text-[40px] lg:text-[40px] md:text-[30px]" />
+                  <FaGithub className="xl:text-[40px] lg:text-[40px] md:text-[30px] text-[--white]" />
                 </Link>
               </div>
             </div>

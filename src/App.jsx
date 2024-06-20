@@ -4,10 +4,11 @@ import Aside from "./components/configs/Aside";
 import TodoList from "./components/pages/TodoList";
 import { useContext } from "react";
 import { GlobleProvider } from "./components/Context/GlobleContext";
+import Popup from "./components/pages/Popup";
 
 function App() {
 
-  const { theme } = useContext(GlobleProvider)
+  const { theme ,popupMsg} = useContext(GlobleProvider)
   return (
     <>
     <section className={`${theme}`}>
@@ -18,6 +19,7 @@ function App() {
           </div>
 
           <div className="bg-[--mainBg] xl:col-span-4 lg:col-span-4 md:col-span-17 sm:col-span-17 h-[full]">
+            <Popup props={{message:popupMsg}}/>
             <Routes>
               <Route path="/" element={<TodoForm />} />
               <Route path="Todolist" element={<TodoList />} />

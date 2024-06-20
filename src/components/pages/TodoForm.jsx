@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { GlobleProvider } from "../Context/GlobleContext";
 
 export default function TodoForm() {
-  const { submissionFormHandler,inputData ,inputValue} = useContext(GlobleProvider);
+  const { inputData ,inputValue,addTodoBtn} = useContext(GlobleProvider);
   return (
     <>
       <div>
-        <form onSubmit={submissionFormHandler}>
+        <form onSubmit={(e) => { e.preventDefault(); addTodoBtn(); }}>
           <div className="flex justify-center pt-[80px]  xl:bg-[--mainBg] h-[100vh]">
             <div className="xl:w-[80%] lg:w-[65%] border-2 border-[--white] h-[366px]  shadow-2xl shadow-white rounded-[10px]">
               <div>
@@ -71,6 +71,7 @@ export default function TodoForm() {
             </div>
           </div>
         </form>
+
       </div>
     </>
   );
