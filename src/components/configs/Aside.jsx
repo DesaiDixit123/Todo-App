@@ -69,7 +69,7 @@ export default function Aside() {
                 {aside ? (
                   <div className="lg:text-xl text-3xl lMobile:text-2xl flex items-center">
                     <div className="absolute right-1 top-0 text-[--aside] lg:text-xl text-sm font-bold bg-[--red] w-4 h-4 rounded-full flex justify-center items-center">
-                      <div>{getData.length}</div>
+                      <div className="text-red-400">{getData.length}</div>
                     </div>
                     <div className="mx-2 z-10">
                       <LuListTodo />
@@ -105,7 +105,7 @@ export default function Aside() {
             <div className="tablet:py-3">
               <Link
                 to={
-                  "https://github.com/webDev5464/React-Todo-Documentation.git"
+                  "https://github.com/DesaiDixit123"
                 }
                 target="_blank"
                 className="text-3xl lMobile:text-2xl"

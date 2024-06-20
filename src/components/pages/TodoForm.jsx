@@ -23,7 +23,7 @@ export default function TodoForm() {
                     onChange={inputData}
                     value={inputValue.heading}
                     name="heading"
-                    className="border-2 border-[--white] bg-[--black] text-[--white] outline-none xl:p-[7px] rounded-[10px] lg:p-[4px] text-[20px] set3:w-[200px] set3:text-[15px] set3:p-[7px] set4:w-[250px] set5:w-[170px] set6:w-[120px]"
+                    className="border-2 border-[--white]  focus:border-[--black] bg-[--black] text-[--white]outline-none focus:bg-[--white] focus:text-[--black] xl:p-[7px] rounded-[10px] lg:p-[4px] text-[20px] set3:w-[200px] set3:text-[15px] set3:p-[7px] set4:w-[250px] set5:w-[170px] set6:w-[120px]"
                   />
                 </div>
                 <div className="flex justify-evenly pt-[20px] set3:flex-col">
@@ -36,7 +36,7 @@ pt-[4px] set3:text-[22px]">Time : </h2>
                       onChange={inputData}
                       value={inputValue.time}
                       id=""
-                      className="border-2 border-[--white] bg-[--black] text-[--white] xl:p-[7px] lg:p-[4px] rounded-[10px] px-[10px] set3:p-[5px] set4:w-[80px]"
+                      className="border-2 border-[--white] focus:border-[--white] focus:bg-[--white] focus:text-[--black] bg-[--black] text-[--white] xl:p-[7px] lg:p-[4px] rounded-[10px] px-[10px] set3:p-[5px] set4:w-[80px]"
                     />
                   </div>
 
@@ -49,7 +49,7 @@ pt-[4px] set3:text-[22px]">Date : </h2>
                       onChange={inputData}
                       value={inputValue.date}
                       id=""
-                      className="border-2  border-[--white] bg-[--black] text-[--white] xl:p-[7px] lg:p-[4px] rounded-[10px] set3:p-[5px] set6:w-[120px]"
+                      className="border-2  border-[--white] focus:border-[--white] focus:bg-[--white] focus:text-[--black] bg-[--black] text-[--white] xl:p-[7px] lg:p-[4px] rounded-[10px] set3:p-[5px] set6:w-[120px]"
                     />
                   </div>
                 </div>
@@ -61,11 +61,11 @@ pt-[4px] set3:text-[22px]">Date : </h2>
                     value={inputValue.textArea}
                     id=""
                     placeholder="Write Here..."
-                    className="border-2 border-[--white] bg-[--black] text-[--white] outline-none xl:w-[300px] lg:w-[250px] rounded-[10px] xl:p-[7px] lg:p-[4px] text-[18px] set3:w-[200px] set3:p-[5px] set4:w-[250px] set5:w-[170px] set6:w-[120px] set6:h-[150px]"
+                    className="border-2 border-[--white] focus:border-[--white] focus:bg-[--white] focus:text-[--black] bg-[--black] text-[--white] outline-none xl:w-[300px] lg:w-[250px] rounded-[10px] xl:p-[7px] lg:p-[4px] text-[18px] set3:w-[200px] set3:p-[5px] set4:w-[250px] set5:w-[170px] set6:w-[120px] set6:h-[150px]"
                   ></textarea>
                 </div>
                 <div className="pt-[25px] px-[30px]">
-                  <button className="border-4 border-[--white] bg-AddBtn-600 xl:p-[10px] lg:p-[6px] rounded-[10px] xl:w-[150px] lg:w-[110px] text-[--black] font-medium xl:text-[20px] lg:text-[18px] tablet:p-[10px] set3:px-[20px] set3:my-[20px]">
+                  <button className="border-4 border-[--white] bg-AddBtn-600 xl:p-[10px] lg:p-[6px] rounded-[10px] xl:w-[150px] lg:w-[110px] text-[--black] focus:bg-[--white] font-medium xl:text-[20px] lg:text-[18px] tablet:p-[10px] set3:px-[20px] set3:my-[20px]">
                     Add Todo
                   </button>
                 </div>
