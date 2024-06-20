@@ -21,7 +21,10 @@ export default {
             '2xl': '1536px',
             // => @media (min-width: 1536px) { ... }
         },
+
+
         extend: {
+
             gridTemplateColumns: {
                 // Simple 16 column grid
                 '13': 'repeat(13, minmax(0, 1fr))',
@@ -52,7 +55,9 @@ export default {
                 },
                 listBtn: {
                     400: "#FF6347"
-                }
+                },
+
+
             }
         },
 

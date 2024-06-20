@@ -15,15 +15,15 @@ export default function GlobleContext({ children }) {
   const [searchTodo, setSearchTodo] = useState([]);
   const [searchQur, setSearchqur] = useState("");
   const [theme, setTheme] = useState("dark");
-  const [activeTodo,setActiveTodo]=useState(false)
-  const [popupMsg,setPopupMsg]=useState("")
+  const [activeTodo, setActiveTodo] = useState(false);
+  const [popupMsg, setPopupMsg] = useState("");
+  const [aside, setAside] = useState(true)
 
   useEffect(() => {
-    const storadeTheme = localStorage.getItem("theme")
+    const storadeTheme = localStorage.getItem("theme");
     if (storadeTheme !== null) {
-      setTheme(storadeTheme)
+      setTheme(storadeTheme);
     }
-
 
     const storeGetData = JSON.parse(localStorage.getItem("todoData")) || [];
     setGetData(storeGetData);
@@ -35,26 +35,57 @@ export default function GlobleContext({ children }) {
   };
   console.log(inputValue);
 
-  // const submissionFormHandler = (e) => {
-  //   e.preventDefault();
+  const showAside = () => {
+    setAside(!aside)
+  }
 
-  //   if (inputValue.heading.trim() === '') {
-  //     setMessage('Write heading');
-  //     return;
-  //   } else if (inputValue.textArea.trim() === '') {
-  //     setMessage('Write description');
-  //     return;
-  //   } else {
-  //     setMessage('Added Todo');
-  //   }
-  //   const updatedData = [...getData, inputValue];
-  //   setGetData(updatedData);
+  const submissionFormHandler = (e) => {
+    e.preventDefault();
 
-  //   localStorage.setItem("todoData", JSON.stringify(updatedData));
+    if (inputValue.heading.trim() === "") {
+      setPopupMsg("Write Heading");
+      setActiveTodo(true);
+      setTimeout(() => {
+        setActiveTodo(false);
+        setPopupMsg("");
+      }, 1000);
+    } else if (inputValue.time.trim() === "") {
+      setPopupMsg("Select Time");
+      setActiveTodo(true);
+      setTimeout(() => {
+        setActiveTodo(false);
+        setPopupMsg("");
+      }, 1000);
+    } else if (inputValue.date.trim() === "") {
+      setPopupMsg("Select Date");
+      setActiveTodo(true);
+      setTimeout(() => {
+        setActiveTodo(false);
+        setPopupMsg("");
+      }, 1000);
+    } else if (inputValue.textArea.trim() === "") {
+      setPopupMsg("Write Description");
+      setActiveTodo(true);
+      setTimeout(() => {
+        setActiveTodo(false);
+        setPopupMsg("");
+      }, 1000);
+    } else {
+      const updatedData = [...getData, inputValue];
+      setGetData(updatedData);
 
-  //   setInputValue({ heading: "", time: "", date: "", textArea: "" });
-  
-  // };
+      localStorage.setItem("todoData", JSON.stringify(updatedData));
+
+      setInputValue({ heading: "", time: "", date: "", textArea: "" });
+
+      setPopupMsg("New Todo Added");
+      setActiveTodo(true);
+      setTimeout(() => {
+        setActiveTodo(false);
+        setPopupMsg("");
+      }, 1500);
+    }
+  };
 
   const removeTodo = (id) => {
     const filterData = getData.filter((item) => item.id !== id);
@@ -62,10 +93,11 @@ export default function GlobleContext({ children }) {
     localStorage.setItem("todoData", JSON.stringify(filterData));
     setSearchqur("");
 
-
-    setPopupMsg("Remove Todo")
-    setActiveTodo(true)
-    setTimeout(()=>{setActiveTodo(false),setPopupMsg("")},1000)
+    setPopupMsg("Remove Todo");
+    setActiveTodo(true);
+    setTimeout(() => {
+      setActiveTodo(false), setPopupMsg("");
+    }, 1000);
   };
 
   const searchHandler = () => {
@@ -77,62 +109,19 @@ export default function GlobleContext({ children }) {
   };
   useEffect(() => {
     searchHandler();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQur, getData]);
 
   const themeButton = () => {
-    const themeValue = theme == "dark" ? "light" : "dark"
-    setTheme(themeValue)
-    localStorage.setItem("theme", themeValue)
-  }
+    const themeValue = theme == "dark" ? "light" : "dark";
+    setTheme(themeValue);
+    localStorage.setItem("theme", themeValue);
+  };
 
-const addTodoBtn = () => {
-  if (inputValue.heading.trim() === "") {
-    setPopupMsg("Write Heading");
-    setActiveTodo(true);
-    setTimeout(() => {
-      setActiveTodo(false);
-      setPopupMsg("");
-    }, 1000);
-  } else if (inputValue.time.trim() === "") {
-    setPopupMsg("Select Time");
-    setActiveTodo(true);
-    setTimeout(() => {
-      setActiveTodo(false);
-      setPopupMsg("");
-    }, 1000);
-  } else if (inputValue.date.trim() === "") {
-    setPopupMsg("Select Date");
-    setActiveTodo(true);
-    setTimeout(() => {
-      setActiveTodo(false);
-      setPopupMsg("");
-    }, 1000);
-  } else if (inputValue.textArea.trim() === "") {
-    setPopupMsg("Write Description");
-    setActiveTodo(true);
-    setTimeout(() => {
-      setActiveTodo(false);
-      setPopupMsg("");
-    }, 1000);
-  } else {
-    const updatedData = [...getData, inputValue];
-    setGetData(updatedData);
-
-    localStorage.setItem("todoData", JSON.stringify(updatedData));
-
-    setInputValue({ heading: "", time: "", date: "", textArea: "" });
-
-    setPopupMsg("New Todo Added");
-    setActiveTodo(true);
-    setTimeout(() => {
-      setActiveTodo(false);
-      setPopupMsg("");
-    }, 1500);
-  }
-};
   return (
     <GlobleProvider.Provider
       value={{
+        submissionFormHandler,
         inputData,
         getData,
         inputValue,
@@ -143,11 +132,12 @@ const addTodoBtn = () => {
         searchQur,
         themeButton,
         theme,
-        addTodoBtn,
-
         popupMsg,
         setPopupMsg,
-        activeTodo
+        activeTodo,
+        showAside,
+        aside,
+        setAside
       }}
     >
       {children}

@@ -9,45 +9,47 @@ export default function TodoList() {
 
   return (
     <>
-
-     
+      {getData.length !== 0 ? (
+        <div className="px-[40px] py-[20px]">
+          <input
+            type="text"
+            placeholder="Search Your Todo..."
+            className="border-4 border-[--white] bg-[--black] p-[7px] w-[300px] rounded-[15px] outline-none focus:bg-[--white] focus:text-[--black]"
+            value={searchQur}
+            onChange={(e) => setSearchqur(e.target.value)}
+          />
+        </div>
+      ) : (
+        ""
+      )}
       {getData.length === 0 ? (
-      <div  className="h-[100vh]">
-        <div className="flex justify-center pt-[40px] ">
-          <div className="w-[400px] bg-[--black] p-[40px] border-dashed border-4 border-red-500">
-            <div>
-              <h1 className="text-center text-[30px] font-semibold text-[--white]">
-                Todo List Is Blank!
-              </h1>
-            </div>
+        <div className="">
+          <div className="flex justify-center pt-[40px]">
+            <div className="w-[400px] bg-[--black] p-[40px] border-dashed border-4 border-red-500">
+              <div>
+                <h1 className="text-center text-[30px] font-semibold text-[--white]">
+                  Todo List Is Blank!
+                </h1>
+              </div>
 
-            <div className="flex justify-center pt-[20px] gap-6">
-              <p className="text-[20px] text-[--white]">Go to add todo:</p>
-              <Link
-                to={"/"}
-                className="flex text-[20px] gap-2 relative text-createTodo-600 hover:text-red-700"
-              >
-                <span>
-                  <FaPencilAlt className="relative top-1 " />
-                </span>
-                <span>Createtodo</span>
-                {/* <hr className="w-[132px] border-createTodo-600 absolute top-[30px] " /> */}
-              </Link>
+              <div className="flex justify-center pt-[20px] gap-6">
+                <p className="text-[20px] text-[--white]">Go to add todo:</p>
+                <Link
+                  to={"/"}
+                  className="flex text-[20px] gap-2 relative text-createTodo-600 hover:text-red-700"
+                >
+                  <span>
+                    <FaPencilAlt className="relative top-1 " />
+                  </span>
+                  <span>Createtodo</span>
+                  {/* <hr className="w-[132px] border-createTodo-600 absolute top-[30px] " /> */}
+                </Link>
+              </div>
             </div>
-          </div>
           </div>
         </div>
       ) : !searchQur == "" ? (
         <div>
-             <div className="px-[40px] py-[20px] ">
-        <input
-          type="text"
-          placeholder="Search Your Todo..."
-          className="border-4 border-[--white] bg-[--black] text-[20px] p-[7px] w-[300px] rounded-[15px]"
-          value={searchQur}
-          onChange={(e) => setSearchqur(e.target.value)}
-        />
-      </div>
           {searchTodo.map((val, index) => {
             return (
               <TodoCart
@@ -67,22 +69,12 @@ export default function TodoList() {
                   }`,
                   id: val.id,
                 }}
-              
               />
             );
           })}
         </div>
       ) : (
-        <div>
-          <div className="px-[40px] py-[20px]">
-        <input
-          type="text"
-          placeholder="Search Your Todo..."
-          className="border-4 border-black p-[7px] w-[300px] rounded-[15px]"
-          value={searchQur}
-          onChange={(e) => setSearchqur(e.target.value)}
-        />
-      </div>
+        <div className="overflow-auto h-screen">
           {getData.map((val, index) => {
             return (
               <TodoCart

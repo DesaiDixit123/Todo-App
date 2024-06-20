@@ -2,19 +2,19 @@ import { useContext } from "react";
 import { GlobleProvider } from "../Context/GlobleContext";
 
 export default function TodoForm() {
-  const { inputData ,inputValue,addTodoBtn} = useContext(GlobleProvider);
+  const {submissionFormHandler, inputData ,inputValue} = useContext(GlobleProvider);
   return (
     <>
       <div>
-        <form onSubmit={(e) => { e.preventDefault(); addTodoBtn(); }}>
+        <form onSubmit={submissionFormHandler}>
           <div className="flex justify-center pt-[80px]  xl:bg-[--mainBg] h-[100vh]">
-            <div className="xl:w-[80%] lg:w-[65%] border-2 border-[--white] h-[366px]  shadow-2xl shadow-white rounded-[10px]">
+            <div className="xl:w-[80%] lg:w-[65%] border-2 border-[--white] h-[385px]  shadow-2xl shadow-white rounded-[10px]">
               <div>
                 <h1 className="bg-[--white] text-[--black] text-center xl:text-[25px] lg:text-[22px] rounded-t-lg py-2 font-semibold">
                   Create Todo
                 </h1>
               </div>
-              <div className="bg-[--black] h-[310px] rounded-b-lg">
+              <div className="bg-[--black] h-[326px] rounded-b-lg">
                 <div className="flex justify-between pt-5 px-[30px]">
                   <h2 className="xl:text-[23px] lg:text-[20px] font-medium text-[--white]">Heading:</h2>
                   <input
