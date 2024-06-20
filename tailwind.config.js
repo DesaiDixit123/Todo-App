@@ -68,6 +68,9 @@ export default {
        list4: {
           max: "400px"
         },
+       blank1: {
+          max: "480px"
+        },
       },
 
       gridTemplateColumns: {

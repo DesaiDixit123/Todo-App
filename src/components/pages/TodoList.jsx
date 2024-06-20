@@ -32,7 +32,7 @@ export default function TodoList() {
                 </h1>
               </div>
 
-              <div className="flex justify-center pt-[20px] gap-6">
+              <div className="flex justify-center pt-[20px] gap-6 blank1:flex blank1:flex-col blank1:pl-[40px]">
                 <p className="text-[20px] text-[--white]">Go to add todo:</p>
                 <Link
                   to={"/"}
