@@ -14,7 +14,7 @@ export default function TodoList() {
           <input
             type="text"
             placeholder="Search Your Todo..."
-            className="border-4 border-[--white] bg-[--black] p-[7px] w-[300px] rounded-[15px] outline-none focus:bg-[--white] focus:text-[--black]"
+            className="border-4 border-[--white] bg-[--black] p-[7px] w-[300px] rounded-[15px] outline-none focus:bg-[--white] focus:text-[--black] list2:w-[250px] list4:w-[170px]"
             value={searchQur}
             onChange={(e) => setSearchqur(e.target.value)}
           />

@@ -13,22 +13,22 @@ export default function TodoCart({TodoItem}){
         <div className="px-[30px] py-[30px] ">
           <div className=" w-[100%] bg-[--black] border-4 border-[--white] rounded-[15px]">
             <div className="">
-              <h1 className="bg-[--white] text-[--black] text-center text-[30px] py-[5px] font-semibold">
+              <h1 className="bg-[--white] text-[--black] text-center text-[30px] py-[5px] font-semibold list1:text-[23px]">
                {TodoItem.heading}
               </h1>
             </div>
             <div className="py-[10px] px-[13px]">
-              <div className="flex gap-2 text-[23px]">
+              <div className="flex gap-2 text-[23px] list3:flex list3:flex-wrap">
                 <p className="font-bold textClor">Description : </p>
-               <span className="text-[--white]">{TodoItem.textArea}</span> 
+               <span className="text-[--white] ">{TodoItem.textArea}</span> 
               </div>
               <div className="flex gap-2 text-[23px] pt-[10px]">
                 <h2 className="textClor font-bold">Time : </h2>
               <span className="text-[--white]"> {TodoItem.time}</span>
               </div>
-              <div className="flex  gap-2 text-[23px] pt-[10px]">
+              <div className="flex  gap-2 text-[23px] pt-[10px] list4:flex list4:flex-wrap">
                 <h2 className="textClor font-bold">Date : </h2>
-              <span className="text-[--white]"> {TodoItem.date}</span>
+              <span className="text-[--white] "> {TodoItem.date}</span>
               </div>
               <br />
               <hr className="w-[100%] border-[--white]  " />
@@ -38,7 +38,7 @@ export default function TodoCart({TodoItem}){
             </div>
             <div className="flex justify-between px-[20px] bg-[--white] text-gray-500 py-[5px] mt-[10px]">
               <div>Todo Created</div>
-              <div className="">
+              <div className="list2:flex list2:flex-col">
                 <span className="pr-[40px]">Date : {TodoItem.createdDate}</span>
                 <span>Time : {TodoItem.createdTime}</span>
               </div>
